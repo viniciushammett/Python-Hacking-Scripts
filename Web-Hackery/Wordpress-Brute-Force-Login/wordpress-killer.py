@@ -9,7 +9,7 @@ import time
 
 SUCCESS = 'Welcome to WordPress!'
 TARGET = "http://boodelyboo.com/wordpress/wp-login.php"
-WORDLIST = '/home/vinny/bhp/bhp/cain.txt'
+WORDLIST = '/home/vinny/bhp/bhp/cain-and-abel.txt'
 
 def get_words():
     with open(WORDLIST) as f:
